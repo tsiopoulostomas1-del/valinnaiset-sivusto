@@ -1,0 +1,118 @@
+/* Ammatilliset valinnaiset: yhteinen tyylitiedosto.
+   Osat 1-5 annettiin ohjeessa, osat 6-10 tehtiin itse. */
+
+/* 1. Muuttujat */
+:root {
+  --tausta: #f4f6f7;
+  --pinta: #ffffff;
+  --teksti: #1c2b33;
+  --himmea: #52626b;
+  --reuna: #cfd8dc;
+  --paa: #1f4e5f;
+  --paa-tumma: #143642;
+  --virhe: #a1262b;
+  --virhe-tausta: #fbeaea;
+  --pyoristys: 6px;
+  --fontti: system-ui, "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+/* 2. Perusta */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: var(--fontti);
+  line-height: 1.5;
+  color: var(--teksti);
+  background: var(--tausta);
+}
+
+a {
+  color: var(--paa);
+}
+
+h1 {
+  margin-top: 0;
+  font-size: 1.6rem;
+  line-height: 1.2;
+}
+
+/* 3. Yläpalkki */
+.ylapalkki {
+  color: #fff;
+  background: var(--paa);
+}
+
+.ylapalkki-sisus {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 1.5rem;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0.75rem 1rem;
+}
+
+.sivuston-nimi {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #fff;
+  text-decoration: none;
+}
+
+.valikko ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.valikko a {
+  color: #fff;
+}
+
+.kayttaja {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 0.75rem;
+  margin-left: auto;
+}
+
+/* 4. Sisältöalue ja kortti */
+main {
+  flex: 1;
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 1.5rem 1rem 3rem;
+}
+
+.kortti {
+  padding: 1.25rem;
+  background: var(--pinta);
+  border: 1px solid var(--reuna);
+  border-radius: var(--pyoristys);
+}
+
+/* 5. Alaosa */
+.alaosa {
+  padding: 1rem;
+  font-size: 0.875rem;
+  color: var(--himmea);
+  text-align: center;
+  border-top: 1px solid var(--reuna);
+}
+
+.alaosa p {
+  margin: 0;
+}
