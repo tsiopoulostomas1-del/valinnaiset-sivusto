@@ -39,3 +39,20 @@ function vaadi_kirjautuminen(): void
         exit;
     }
 }
+
+/** Sivu vain annetuille rooleille. Muut saavat virheen 403. */
+function vaadi_rooli(array $roolit): void
+{
+    vaadi_kirjautuminen();
+
+    if (!in_array($_SESSION['rooli'], $roolit, true)) {
+        http_response_code(403);
+        $otsikko = 'Ei oikeutta';
+        require __DIR__ . '/../osat/ylaosa.php';
+        echo '<h1>Ei oikeutta</h1>';
+        echo '<p>Tämä sivu ei kuulu sinun roolillesi. ';
+        echo '<a href="' . roolin_etusivu($_SESSION['rooli']) . '">Omalle etusivulle</a></p>';
+        require __DIR__ . '/../osat/alaosa.php';
+        exit;
+    }
+}

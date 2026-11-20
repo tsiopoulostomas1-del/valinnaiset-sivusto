@@ -1,7 +1,7 @@
 <?php
 require __DIR__ . '/inc/kirjautuminen.php';
 
-vaadi_kirjautuminen();
+vaadi_rooli(['opiskelija']);
 
 $otsikko = 'Valinnaiset';
 require __DIR__ . '/osat/ylaosa.php';
