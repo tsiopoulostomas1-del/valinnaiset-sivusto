@@ -46,7 +46,7 @@ require __DIR__ . '/osat/ylaosa.php';
   <form method="post">
     <label for="sahkoposti">Sähköposti</label>
     <input type="email" id="sahkoposti" name="sahkoposti" required
-           autocomplete="username">
+           autocomplete="username" value="<?= htmlspecialchars($sahkoposti, ENT_QUOTES, 'UTF-8') ?>">
 
     <label for="salasana">Salasana</label>
     <input type="password" id="salasana" name="salasana" required

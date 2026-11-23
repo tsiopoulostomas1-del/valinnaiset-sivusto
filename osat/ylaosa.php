@@ -10,14 +10,18 @@
 <header class="ylapalkki">
   <div class="ylapalkki-sisus">
     <a class="sivuston-nimi" href="index.php">Ammatilliset valinnaiset</a>
-    
-      <?php if (kirjautunut()): ?>
+    <?php if (kirjautunut()): ?>
       <nav class="valikko" aria-label="Päävalikko">
         <ul>
           <?php if ($_SESSION['rooli'] === 'opiskelija'): ?>
             <li><a href="opiskelija.php">Valinnaiset</a></li>
           <?php endif; ?>
-          <!-- Tee itse: Valinnat ja Hallinta -->
+          <?php if (in_array($_SESSION['rooli'], ['opettaja', 'paakayttaja'], true)): ?>
+            <li><a href="opettaja.php">Valinnat</a></li>
+          <?php endif; ?>
+          <?php if ($_SESSION['rooli'] === 'paakayttaja'): ?>
+            <li><a href="hallinta.php">Hallinta</a></li>
+          <?php endif; ?>
         </ul>
       </nav>
 
@@ -29,9 +33,3 @@
   </div>
 </header>
 <main>
-</main>
-<footer class="alaosa">
-  <p>Ammatilliset valinnaiset · harjoitusprojekti</p>
-</footer>
-</body>
-</html>
