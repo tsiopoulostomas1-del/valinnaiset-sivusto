@@ -232,4 +232,61 @@ textarea:focus-visible {
   width: 100%;
 }
 
+/* 11. Taulukot ja valinnaisten ylläpito */
+.taulukko-kehys {
+  overflow-x: auto;
+  background: var(--pinta);
+  border: 1px solid var(--reuna);
+  border-radius: var(--pyoristys);
+}
 
+.taulukko {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.taulukko th,
+.taulukko td {
+  padding: 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid var(--reuna);
+  vertical-align: middle;
+}
+
+.taulukko th {
+  background: #edf2f3;
+}
+
+.merkki {
+  display: inline-block;
+  margin-right: 0.25rem;
+  padding: 0.125rem 0.4rem;
+  font-size: 0.75rem;
+  border-radius: 999px;
+  background: #ddecef;
+}
+
+.merkki-taynna {
+  background: var(--virhe-tausta);
+  color: var(--virhe);
+}
+
+.toiminnot {
+  white-space: nowrap;
+}
+
+.toiminnot form {
+  display: inline;
+}
+
+button.painike-linkki {
+  display: inline;
+  width: auto;
+  padding: 0;
+  margin: 0 0 0 0.5rem;
+  color: var(--paa);
+  background: transparent;
+  border: 0;
+  font: inherit;
+  text-decoration: underline;
+}

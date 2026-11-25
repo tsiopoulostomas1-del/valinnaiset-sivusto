@@ -9,6 +9,8 @@ require __DIR__ . '/osat/ylaosa.php';
 <h1>Hallinta</h1>
 
 <div class="kortti">
-  <p>Täällä voit hallita opiskelijoiden valintoja ja lomakkeita.</p>
+  <h2>Valinnaiset</h2>
+  <p>Lisää, muokkaa ja poista ammatillisia valinnaisia.</p>
+  <p><a href="aineet.php">Valinnaisten ylläpito</a></p>
 </div>
 <?php require __DIR__ . '/osat/alaosa.php'; ?>

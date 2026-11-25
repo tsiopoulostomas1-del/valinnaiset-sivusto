@@ -79,3 +79,9 @@ function tallenna_aine(?int $id, array $tiedot): void
         )->execute($arvot);
     }
 }
+
+/** Poistaa valinnaisen. */
+function poista_aine(int $id): void
+{
+    yhteys()->prepare('DELETE FROM aine WHERE id = ?')->execute([$id]);
+}
