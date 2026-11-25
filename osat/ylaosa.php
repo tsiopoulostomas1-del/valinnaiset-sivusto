@@ -33,3 +33,7 @@
   </div>
 </header>
 <main>
+<?php $ilmoitus = ota_ilmoitus(); ?>
+<?php if ($ilmoitus !== null): ?>
+  <p class="ilmoitus" role="status"><?= htmlspecialchars($ilmoitus) ?></p>
+<?php endif; ?>

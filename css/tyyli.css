@@ -271,22 +271,75 @@ textarea:focus-visible {
   color: var(--virhe);
 }
 
-.toiminnot {
-  white-space: nowrap;
-}
-
-.toiminnot form {
-  display: inline;
-}
-
 button.painike-linkki {
   display: inline;
   width: auto;
   padding: 0;
-  margin: 0 0 0 0.5rem;
-  color: var(--paa);
+  margin: 0;
+  color: var(--virhe);
   background: transparent;
   border: 0;
   font: inherit;
+  font-weight: 400;
   text-decoration: underline;
+}
+
+button.painike-linkki:hover {
+  background: transparent;
+}
+
+/* 14. Lomakkeen lisät */
+.lomake {
+  max-width: 36rem;
+}
+
+.kentan-virhe {
+  margin: 0.25rem 0 0;
+  color: var(--virhe);
+  font-weight: 600;
+}
+
+.valinta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 400;
+}
+
+.valinta input {
+  width: auto;
+}
+
+.toiminnot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.25rem 1rem;
+  white-space: normal;
+}
+
+.toiminnot form {
+  margin: 0;
+}
+
+.toiminnot .painike-linkki {
+  width: auto;
+  padding: 0;
+  font-weight: 400;
+  color: var(--virhe);
+  text-decoration: underline;
+  background: none;
+  border: 0;
+}
+
+.toiminnot .painike-linkki:hover {
+  background: none;
+}
+
+.ilmoitus {
+  padding: 0.75rem 1rem;
+  color: var(--paa-tumma);
+  background: #e5f2e8;
+  border: 1px solid #9ac5a3;
+  border-radius: var(--pyoristys);
 }
