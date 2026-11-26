@@ -12,6 +12,8 @@
   --paa-tumma: #143642;
   --virhe: #a1262b;
   --virhe-tausta: #fbeaea;
+  --onnistui: #1b6e32;
+  --onnistui-tausta: #d8f5dc;
   --pyoristys: 6px;
   --fontti: system-ui, "Segoe UI", Roboto, Arial, sans-serif;
 }
@@ -38,10 +40,19 @@ a {
   color: var(--paa);
 }
 
-h1 {
+h1, h2, h3 {
   margin-top: 0;
   font-size: 1.6rem;
   line-height: 1.2;
+}
+
+h2 {
+  font-size: 1.3rem;
+}
+
+h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.25rem;
 }
 
 /* 3. Yläpalkki */
@@ -159,11 +170,6 @@ select:focus-visible,
 textarea:focus-visible {
   outline: 3px solid var(--paa);
   outline-offset: 2px;
-}
-
-input:focus-visible,
-select:focus-visible,
-textarea:focus-visible {
   border-color: var(--paa);
 }
 
@@ -216,12 +222,6 @@ a:focus-visible {
   outline-color: #fff;
 }
 
-input:focus-visible,
-select:focus-visible,
-textarea:focus-visible {
-  border-color: var(--paa);
-}
-
 /* 10. Kirjautuminen */
 .kirjautuminen {
   max-width: 48rem;
@@ -257,13 +257,19 @@ textarea:focus-visible {
   background: #edf2f3;
 }
 
+/* 12. Merkit */
 .merkki {
   display: inline-block;
   margin-right: 0.25rem;
   padding: 0.125rem 0.4rem;
   font-size: 0.75rem;
+  font-weight: bold;
   border-radius: 999px;
-  background: #ddecef;
+}
+
+.merkki-tai {
+  background: var(--onnistui);
+  color: #fff;
 }
 
 .merkki-taynna {
@@ -286,6 +292,15 @@ button.painike-linkki {
 
 button.painike-linkki:hover {
   background: transparent;
+}
+
+/* 13. Onnistumisilmoitus */
+.ilmoitus {
+  padding: 0.75rem 1rem;
+  color: var(--onnistui);
+  background: var(--onnistui-tausta);
+  border: 1px solid var(--onnistui);
+  border-radius: var(--pyoristys);
 }
 
 /* 14. Lomakkeen lisät */
@@ -336,10 +351,38 @@ button.painike-linkki:hover {
   background: none;
 }
 
-.ilmoitus {
-  padding: 0.75rem 1rem;
-  color: var(--paa-tumma);
-  background: #e5f2e8;
-  border: 1px solid #9ac5a3;
+/* 15. Valinnaiset opiskelijalle */
+.kori {
+  margin-bottom: 2rem;
+}
+
+.kori h2 {
+  margin-bottom: 0.75rem;
+}
+
+.aineet {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+  gap: 1.5rem;
+}
+
+.aine {
+  background: var(--pinta);
+  border: 1px solid var(--reuna);
   border-radius: var(--pyoristys);
+  padding: 1.25rem;
+}
+
+.aine-tiedot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.375rem;
+  margin-bottom: 0.5rem;
+}
+
+.aine-laajuus {
+  font-size: 0.9rem;
+  color: var(--himmea);
+  font-weight: 600;
 }

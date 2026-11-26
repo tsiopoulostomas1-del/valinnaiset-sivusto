@@ -5,15 +5,20 @@ require __DIR__ . '/inc/aineet.php';
 vaadi_rooli(['paakayttaja']);
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-    http_response_code(405);
-    header('Allow: POST');
+    header('Location: aineet.php');
     exit;
 }
 
 $id = (int)($_POST['id'] ?? 0);
 
 if ($id > 0) {
-    poista_aine($id);
+    $aine = hae_aine($id);
+    if ($aine === null) {
+        aseta_ilmoitus('Valinnaista ei löytynyt. Se on ehkä jo poistettu.');
+    } else {
+        poista_aine($id);
+        aseta_ilmoitus('Valinnainen ' . $aine['nimi'] . ' poistettiin.');
+    }
 }
 
 header('Location: aineet.php');
