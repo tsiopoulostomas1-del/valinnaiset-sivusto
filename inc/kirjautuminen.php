@@ -31,13 +31,34 @@ function roolin_etusivu(string $rooli): string
     return 'opiskelija.php';
 }
 
-/** Kirjautumaton käyttäjä ohjataan kirjautumissivulle. */
+/**
+ * Kirjautumaton käyttäjä ohjataan kirjautumissivulle.
+ *
+ * Nimi ja rooli luetaan joka sivulla uudelleen kannasta. Kun pääkäyttäjä
+ * muuttaa roolia tai poistaa käyttäjän, muutos tulee voimaan heti eikä
+ * vasta seuraavassa kirjautumisessa.
+ */
 function vaadi_kirjautuminen(): void
 {
     if (!kirjautunut()) {
         header('Location: kirjaudu.php');
         exit;
     }
+
+    $kysely = yhteys()->prepare('SELECT nimi, rooli FROM kayttaja WHERE id = ?');
+    $kysely->execute([$_SESSION['kayttaja_id']]);
+    $kayttaja = $kysely->fetch();
+
+    if (!$kayttaja) {
+        // Käyttäjä on poistettu: istunto päättyy.
+        $_SESSION = [];
+        session_destroy();
+        header('Location: kirjaudu.php');
+        exit;
+    }
+
+    $_SESSION['nimi'] = $kayttaja['nimi'];
+    $_SESSION['rooli'] = $kayttaja['rooli'];
 }
 
 /** Sivu vain annetuille rooleille. Muut saavat virheen 403. */
