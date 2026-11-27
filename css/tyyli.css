@@ -12,6 +12,8 @@
   --paa-tumma: #143642;
   --virhe: #a1262b;
   --virhe-tausta: #fbeaea;
+  --onnistui: #1b6e32;
+  --onnistui-tausta: #d8f5dc;
   --pyoristys: 6px;
   --fontti: system-ui, "Segoe UI", Roboto, Arial, sans-serif;
 }
@@ -38,10 +40,19 @@ a {
   color: var(--paa);
 }
 
-h1 {
+h1, h2, h3 {
   margin-top: 0;
   font-size: 1.6rem;
   line-height: 1.2;
+}
+
+h2 {
+  font-size: 1.3rem;
+}
+
+h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.25rem;
 }
 
 /* 3. Yläpalkki */
@@ -159,11 +170,6 @@ select:focus-visible,
 textarea:focus-visible {
   outline: 3px solid var(--paa);
   outline-offset: 2px;
-}
-
-input:focus-visible,
-select:focus-visible,
-textarea:focus-visible {
   border-color: var(--paa);
 }
 
@@ -216,12 +222,6 @@ a:focus-visible {
   outline-color: #fff;
 }
 
-input:focus-visible,
-select:focus-visible,
-textarea:focus-visible {
-  border-color: var(--paa);
-}
-
 /* 10. Kirjautuminen */
 .kirjautuminen {
   max-width: 48rem;
@@ -232,4 +232,157 @@ textarea:focus-visible {
   width: 100%;
 }
 
+/* 11. Taulukot ja valinnaisten ylläpito */
+.taulukko-kehys {
+  overflow-x: auto;
+  background: var(--pinta);
+  border: 1px solid var(--reuna);
+  border-radius: var(--pyoristys);
+}
 
+.taulukko {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.taulukko th,
+.taulukko td {
+  padding: 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid var(--reuna);
+  vertical-align: middle;
+}
+
+.taulukko th {
+  background: #edf2f3;
+}
+
+/* 12. Merkit */
+.merkki {
+  display: inline-block;
+  margin-right: 0.25rem;
+  padding: 0.125rem 0.4rem;
+  font-size: 0.75rem;
+  font-weight: bold;
+  border-radius: 999px;
+}
+
+.merkki-tai {
+  background: var(--onnistui);
+  color: #fff;
+}
+
+.merkki-taynna {
+  background: var(--virhe-tausta);
+  color: var(--virhe);
+}
+
+button.painike-linkki {
+  display: inline;
+  width: auto;
+  padding: 0;
+  margin: 0;
+  color: var(--virhe);
+  background: transparent;
+  border: 0;
+  font: inherit;
+  font-weight: 400;
+  text-decoration: underline;
+}
+
+button.painike-linkki:hover {
+  background: transparent;
+}
+
+/* 13. Onnistumisilmoitus */
+.ilmoitus {
+  padding: 0.75rem 1rem;
+  color: var(--onnistui);
+  background: var(--onnistui-tausta);
+  border: 1px solid var(--onnistui);
+  border-radius: var(--pyoristys);
+}
+
+/* 14. Lomakkeen lisät */
+.lomake {
+  max-width: 36rem;
+}
+
+.kentan-virhe {
+  margin: 0.25rem 0 0;
+  color: var(--virhe);
+  font-weight: 600;
+}
+
+.valinta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 400;
+}
+
+.valinta input {
+  width: auto;
+}
+
+.toiminnot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.25rem 1rem;
+  white-space: normal;
+}
+
+.toiminnot form {
+  margin: 0;
+}
+
+.toiminnot .painike-linkki {
+  width: auto;
+  padding: 0;
+  font-weight: 400;
+  color: var(--virhe);
+  text-decoration: underline;
+  background: none;
+  border: 0;
+}
+
+.toiminnot .painike-linkki:hover {
+  background: none;
+}
+
+/* 15. Valinnaiset opiskelijalle */
+.kori {
+  margin-bottom: 2rem;
+}
+
+.kori h2 {
+  margin-bottom: 0.75rem;
+}
+
+.aineet {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+  gap: 1.5rem;
+}
+
+.aine {
+  background: var(--pinta);
+  border: 1px solid var(--reuna);
+  border-radius: var(--pyoristys);
+  padding: 1.25rem;
+}
+
+.aine-tiedot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.375rem;
+  margin-bottom: 0.5rem;
+}
+
+.aine-laajuus {
+  font-size: 0.9rem;
+  color: var(--himmea);
+  font-weight: 600;
+}

@@ -77,3 +77,18 @@ function vaadi_rooli(array $roolit): void
         exit;
     }
 }
+
+/** Tallentaa ilmoituksen näytettäväksi seuraavalla sivulla. */
+function aseta_ilmoitus(string $teksti): void
+{
+    $_SESSION['ilmoitus'] = $teksti;
+}
+
+/** Palauttaa ilmoituksen ja poistaa sen, jottei se näy uudelleen. */
+function ota_ilmoitus(): ?string
+{
+    $teksti = $_SESSION['ilmoitus'] ?? null;
+    unset($_SESSION['ilmoitus']);
+
+    return $teksti;
+}
